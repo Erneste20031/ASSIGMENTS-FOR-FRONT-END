@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Form Validation</title>
+	<style type="text/css">
+		body{
+			font-family: Arial,sans-serif;
+			text-align: center;
+			justify-content: center;
+			background: #f0f2f5;
+			
+			margin: 12rem;
+			font-size: 16px;
+		}
+		form{
+
+			background: #fff;
+			width: 400px;
+			border-radius: 10px;
+				font-size: 16px;
+				box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+				
+		}
+		input{
+			width: 200px;
+			padding: 3px;
+			margin-top: 3px;
+			border: 1px solid #ccc;
+			border-radius: 6px;
+			font-size: 12px;
+
+		}
+		button{
+			width: 100px;
+			padding: 1px;
+			background-color: #007BFF;
+			color: white;
+			border: none;
+			border-radius: 6px;
+			cursor: pointer;
+			margin-top: 6px;
+		}
+		button:hover{
+			background-color: #0056b3;
+		}
+	</style>
+
+</head>
+<body>
+	
+		<center>
+<form id="myform" onsubmit="validateForm(event)">
+	<h3 style="font-size: 25px;"><strong>FORM VALIDATION </strong></h3>
+	First Name:<input type="text" name="First Name" ><br><br>
+	Last Name:<input type="text" name="Last Name" ><br><br>
+	Email:<input type="email" name="Email" required><br><br>
+	<button type="submit" name="submit">Submit</button>
+</form>
+</center>
+<script>
+    function validateForm(event) {
+      event.preventDefault();
+      const inputs = document.querySelectorAll('input[type="text"]');
+      let valid = true;
+
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value.trim() === "") {
+          alert("Please fill in the field: " + inputs[i].name);
+          inputs[i].focus();
+          valid = false;
+          break;
+        }
+      }
+
+      if (valid) {
+        alert("Form submitted successfully!");
+      }
+    }
+  </script>
+</body>
+
+</html>
